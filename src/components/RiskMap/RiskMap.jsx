@@ -100,44 +100,6 @@ export default function RiskMap() {
         </div>
       </div>
 
-      {/* FORECAST & NOTES */}
-      <div className="forecast-section">
-        <h2 className="section-title">Weather Forecast & Safety Notes</h2>
-        <ul className="forecast-list">
-          <li className="public high">
-            Heavy rainfall expected in Hillside (Zone B) tomorrow: 70mm.
-            Residents advised to avoid low-lying areas and steep slopes.
-          </li>
-          <li className="public high">
-            Steep Slope (Zone C) at HIGH ALERT due to potential rockfall; all
-            outdoor activity restricted.
-          </li>
-          <li className="public moderate">
-            Riverbank (Zone D) shows moderate risk; monitor water levels and
-            avoid flood-prone streets.
-          </li>
-          <li className="public low">
-            Zone A (Mountain View) remains low risk, minor landslide signs
-            observed near trails.
-          </li>
-          <li className="public moderate">
-            Public: Follow color-coded warnings on map, check evacuation routes,
-            carry emergency kits.
-          </li>
-          <li className="engineer high">
-            Engineers: Analyze real-time slope displacement sensors in Zone C;
-            expect >3mm shift in next 24 hours.
-          </li>
-          <li className="engineer high">
-            Engineers: Compare recent drone survey with previous scans to
-            identify micro-cracks near rock outcrops.
-          </li>
-          <li className="engineer moderate">
-            Engineers: Cross-reference rainfall vs. historical slope failures;
-            activate early warning sirens if threshold exceeded.
-          </li>
-        </ul>
-      </div>
     </div>
   );
 }

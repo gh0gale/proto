@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AlertTriangle, MapPin, Activity, Camera } from "lucide-react";
+import { AlertTriangle, Camera } from "lucide-react";
 import "../Alerts/Alerts.css";
 
 export default function Alerts() {
@@ -14,7 +14,6 @@ export default function Alerts() {
       time: "2025-09-05 09:00",
       level: "high",
       category: "Road Closure",
-      attachments: 2,
     },
     {
       id: "AL-102",
@@ -24,7 +23,6 @@ export default function Alerts() {
       time: "2025-09-05 07:30",
       level: "medium",
       category: "Weather",
-      attachments: 0,
     },
     {
       id: "AL-103",
@@ -34,7 +32,60 @@ export default function Alerts() {
       time: "2025-09-04 16:20",
       level: "low",
       category: "Rockfall",
-      attachments: 1,
+    },
+    {
+      id: "AL-104",
+      title: "Bridge Inspection Required",
+      description: "Potential structural issues detected. Engineering team alerted.",
+      zone: "Zone A",
+      time: "2025-09-05 08:15",
+      level: "medium",
+      category: "Infrastructure",
+    },
+    {
+      id: "AL-105",
+      title: "River Overflow Warning",
+      description: "River levels rising due to heavy rainfall. Monitor local areas.",
+      zone: "Region East",
+      time: "2025-09-05 06:50",
+      level: "high",
+      category: "Flood",
+    },
+    {
+      id: "AL-106",
+      title: "Landslide Risk Alert",
+      description: "Slope instability detected after recent storms. Avoid Zone D.",
+      zone: "Zone D",
+      time: "2025-09-04 18:40",
+      level: "high",
+      category: "Landslide",
+    },
+    {
+      id: "AL-107",
+      title: "Trail Closure: Rocky Path",
+      description: "Trail closed due to fallen rocks and debris. Safety team notified.",
+      zone: "Zone E",
+      time: "2025-09-04 12:30",
+      level: "medium",
+      category: "Trail Closure",
+    },
+    {
+      id: "AL-108",
+      title: "Storm Advisory",
+      description: "Strong winds and thunderstorms expected in coastal regions.",
+      zone: "Region South",
+      time: "2025-09-05 05:20",
+      level: "medium",
+      category: "Weather",
+    },
+    {
+      id: "AL-109",
+      title: "Evacuation Alert: Hillside Residential Area",
+      description: "Residents advised to evacuate due to high rockfall risk.",
+      zone: "Zone F",
+      time: "2025-09-05 09:45",
+      level: "high",
+      category: "Evacuation",
     },
   ];
 
@@ -43,6 +94,17 @@ export default function Alerts() {
     { name: "Rockfall & Debris Risk Analysis – Mountain Sectors", link: "#" },
     { name: "Evacuation & Traffic Reroute Guidelines", link: "#" },
   ];
+
+  // Sort alerts by time descending
+  const sortedAlerts = [...alerts].sort(
+    (a, b) => new Date(b.time) - new Date(a.time)
+  );
+
+  // Recent: latest 6 alerts
+  const recentAlerts = sortedAlerts.slice(0, 6);
+
+  // Past: remaining older alerts
+  const pastAlerts = sortedAlerts.slice(6);
 
   const severityCount = {
     high: alerts.filter(a => a.level === "high").length,
@@ -76,10 +138,16 @@ export default function Alerts() {
 
       {/* TAB BUTTONS */}
       <div className="alerts-tabs">
-        <button className={tab === "recent" ? "tab active" : "tab"} onClick={() => setTab("recent")}>
+        <button
+          className={tab === "recent" ? "tab active" : "tab"}
+          onClick={() => setTab("recent")}
+        >
           Recent Alerts
         </button>
-        <button className={tab === "past" ? "tab active" : "tab"} onClick={() => setTab("past")}>
+        <button
+          className={tab === "past" ? "tab active" : "tab"}
+          onClick={() => setTab("past")}
+        >
           Past Alerts
         </button>
       </div>
@@ -87,21 +155,15 @@ export default function Alerts() {
       {/* MAIN GRID */}
       <div className="main-grid">
         <div className="left-column">
-          {alerts.map(alert => (
-            (tab === "recent" ? alert.level !== "low" : alert.level === "low") && (
-              <div key={alert.id} className={`alert-card ${alert.level}`}>
-                <h3>
-                  <AlertTriangle size={18} /> {alert.title}
-                </h3>
-                <p className="meta">{alert.id} • {alert.zone} • {alert.category}</p>
-                <p>{alert.description}</p>
-                <p className="meta">Issued: {alert.time}</p>
-                <div className="tags">
-                  <span className={`tag ${alert.level}`}>{alert.level.toUpperCase()}</span>
-                  {alert.attachments > 0 && <span className="tag attachments"><Camera size={12}/> {alert.attachments} attachments</span>}
-                </div>
-              </div>
-            )
+          {(tab === "recent" ? recentAlerts : pastAlerts).map(alert => (
+            <div key={alert.id} className={`alert-card ${alert.level}`}>
+              <h3>
+                <AlertTriangle size={18} /> {alert.title}
+              </h3>
+              <p className="meta">{alert.id} • {alert.zone} • {alert.category}</p>
+              <p>{alert.description}</p>
+              <p className="meta">Issued: {alert.time}</p>
+            </div>
           ))}
         </div>
 
@@ -109,7 +171,9 @@ export default function Alerts() {
           <section className="content-card">
             <h2 className="section-title">Technical Reports</h2>
             <ul className="report-list">
-              {reports.map((r,i) => <li key={i}><a href={r.link} target="_blank">{r.name}</a></li>)}
+              {reports.map((r,i) => (
+                <li key={i}><a href={r.link} target="_blank">{r.name}</a></li>
+              ))}
             </ul>
           </section>
 

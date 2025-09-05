@@ -154,7 +154,7 @@ export default function Admin() {
             <div>
               <h2 className="section-title">Current Safety Status</h2>
               <div className="status-box moderate">
-                <AlertTriangle size={40} />
+                <AlertTriangle size={30} />
                 <h3>MODERATE RISK</h3>
                 <p>Current conditions require caution</p>
               </div>
