@@ -1,0 +1,235 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+  color: #1f1f1f;
+}
+
+/* MAIN CONTAINER */
+.dashboard-container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+/* PAGE TITLE */
+.page-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  text-align: center;
+  color: #b91c1c; /* primary red */
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* MAP CARD */
+.map-card {
+  width: 100%;
+  max-width: 1200px;
+  height: 400px;
+  background: #fff5f5;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.map-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* ZONE CARDS */
+.zone-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.zone-card {
+  background: #fff5f5; /* soft red-tinted white */
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zone-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.zone-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #b91c1c;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.zone-card p {
+  font-size: 0.95rem;
+  color: #4b1a1a;
+  margin: 0.4rem 0;
+  line-height: 1.5;
+}
+
+.zone-card ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.zone-card li {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #3c1313;
+}
+
+/* Risk indicators */
+.risk.low {
+  color: #16a34a; /* green */
+  font-weight: 700;
+}
+
+.risk.moderate {
+  color: #f59e0b; /* yellow */
+  font-weight: 700;
+}
+
+.risk.high {
+  color: #b91c1c; /* red */
+  font-weight: 700;
+}
+
+/* ALERTS */
+.alerts-section .section-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #b91c1c;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Alert Cards */
+.alerts-section .section-title {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: #b91c1c;
+  margin-bottom: 30px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* Alert Cards */
+.alert-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 1.8rem 2.2rem;
+  font-weight: 700;
+  border-left: 8px solid;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  background: #fff5f5;
+  border-radius: 8px 0 8px 0; /* sharp angled corners */
+}
+
+/* Alert Types with gradient backgrounds */
+.alert-card.high {
+  border-color: #b91c1c;
+  color: #b91c1c;
+  background: linear-gradient(120deg, #ffe5e5, #ffd1d1);
+}
+
+.alert-card.moderate {
+  border-color: #facc15;
+  color: #b45309;
+  background: linear-gradient(120deg, #fff8e1, #fff3c4);
+}
+
+.alert-card.low {
+  border-color: #22c55e;
+  color: #15803d;
+  background: linear-gradient(120deg, #e6f9f0, #d1f2e8);
+}
+
+/* Icon size */
+.alert-card svg {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+}
+
+/* Alert message text */
+.alert-card span {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.4rem;
+}
+
+
+
+
+
+/* TIPS & CONTACTS */
+.tips-contacts-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px;
+}
+
+.tips-card, .contacts-card {
+  background: #fef2f2;
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+}
+
+.tips-card:hover, .contacts-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.tips-card ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+.tips-card li {
+  margin-bottom: 0.7rem;
+}
+
+.contacts-card p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
