@@ -32,8 +32,9 @@ html, body, #root {
   margin-bottom: 30px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
@@ -49,10 +50,11 @@ html, body, #root {
   flex: 1;
   max-width: 160px;
   text-align: center;
-  padding: 20px;
+  padding: 20px 16px;
   border-radius: 14px;
   color: white;
   font-weight: 700;
+  font-size: 1.1rem;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
 }
 .stat-card.high { background: #b91c1c; }
@@ -78,6 +80,7 @@ html, body, #root {
   cursor: pointer;
   text-align: center;
   box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: none; /* No hover animations */
 }
 .tab.active {
   background: linear-gradient(90deg, #b91c1c, #f87171);
@@ -162,7 +165,7 @@ html, body, #root {
   text-decoration: none;
 }
 
-/* RIGHT COLUMN BULLETS */
+/* BULLETS */
 .right-column ul {
   list-style: disc inside;
   padding-left: 0;

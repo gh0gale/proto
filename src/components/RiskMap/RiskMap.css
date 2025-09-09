@@ -22,6 +22,7 @@ body,
   font-weight: 800;
   color: #b91c1c;
   margin-bottom: 30px;
+  text-align: center;
 }
 
 /* VIEW TOGGLE */
@@ -29,6 +30,8 @@ body,
   display: flex;
   gap: 20px;
   margin-bottom: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 .view-toggle button {
   padding: 0.7rem 1.2rem;
@@ -51,6 +54,7 @@ body,
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  justify-content: center;
 }
 .map-placeholder {
   flex: 1 1 400px;
@@ -117,8 +121,7 @@ body,
   color: #6b7280;
 }
 
-/* FORECAST SECTION */
-/* FORECAST / ALERT LIST */
+/* FORECAST LIST */
 .forecast-list {
   list-style: none;
   padding: 0;
@@ -129,11 +132,11 @@ body,
 }
 
 .forecast-list li {
-  background: #ffffff; /* clean white card */
-  border-left: 6px solid #b91c1c; /* red accent */
+  background: #ffffff;
+  border-left: 6px solid #b91c1c;
   border-radius: 14px;
   padding: 1.5rem 2rem;
-  box-shadow: 0 4px 18px rgba(185, 28, 28, 0.1); /* subtle red shadow */
+  box-shadow: 0 4px 18px rgba(185, 28, 28, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   font-size: 1rem;
   color: #1f1f1f;
@@ -141,6 +144,12 @@ body,
   line-height: 1.5rem;
 }
 
+.forecast-list li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(185, 28, 28, 0.15);
+}
+
+/* Forecast icons */
 .forecast-list li.public::before {
   content: "⚠️";
   position: absolute;
@@ -149,7 +158,6 @@ body,
   transform: translateY(-50%);
   font-size: 1.2rem;
 }
-
 .forecast-list li.engineer::before {
   content: "🛠️";
   position: absolute;
@@ -165,27 +173,84 @@ body,
 }
 
 /* RISK LEVEL COLORS */
-.forecast-list li.high { border-left-color: #b91c1c; }
-.forecast-list li.moderate { border-left-color: #f59e0b; }
-.forecast-list li.low { border-left-color: #16a34a; }
-
-/* Responsive */
-@media (max-width: 768px) {
-  .forecast-list li { font-size: 0.95rem; padding: 1.2rem 1.5rem; }
+.forecast-list li.high {
+  border-left-color: #b91c1c;
+}
+.forecast-list li.moderate {
+  border-left-color: #f59e0b;
+}
+.forecast-list li.low {
+  border-left-color: #16a34a;
 }
 
+/* TOP IMAGE */
 
 
-/* RESPONSIVE ADJUSTMENTS */
-@media (max-width: 768px) {
-  .forecast-list li {
-    font-size: 0.9rem;
-  }
-}
+/* ========================= */
+/* RESPONSIVE DESIGN STARTS */
+/* ========================= */
 
-/* RESPONSIVE */
+/* Tablets (<=1024px) */
 @media (max-width: 1024px) {
   .map-section {
     flex-direction: column;
+    align-items: center;
+  }
+  .map-placeholder {
+    width: 100%;
+    height: 350px;
+  }
+  .zone-cards {
+    width: 100%;
+  }
+}
+
+/* Large Phones (<=768px) */
+@media (max-width: 768px) {
+  .riskmap-container {
+    padding: 20px 15px;
+  }
+  .page-title {
+    font-size: 2rem;
+  }
+  .view-toggle {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .view-toggle button {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+  .map-placeholder {
+    height: 300px;
+  }
+  .zone-card {
+    padding: 1rem;
+  }
+  .forecast-list li {
+    font-size: 0.95rem;
+    padding: 1.2rem 1.5rem;
+  }
+}
+
+/* Small Phones (<=480px) */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+  .map-placeholder {
+    height: 250px;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+  .forecast-list li {
+    font-size: 0.85rem;
+    padding: 1rem 1.2rem;
+  }
+  .zone-card h3 {
+    font-size: 1rem;
+  }
+  .zone-card p {
+    font-size: 0.85rem;
   }
 }

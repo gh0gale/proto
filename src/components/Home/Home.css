@@ -54,11 +54,6 @@ html, body, #root {
   object-fit: cover;
 }
 
-.map-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-}
-
 /* ZONE CARDS */
 .zone-cards {
   display: grid;
@@ -69,16 +64,11 @@ html, body, #root {
 }
 
 .zone-card {
-  background: #fff5f5; /* soft red-tinted white */
+  background: #fff5f5;
   border-radius: 20px;
   padding: 2rem;
   box-shadow: 0 10px 28px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.zone-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
 .zone-card h3 {
@@ -112,31 +102,21 @@ html, body, #root {
 
 /* Risk indicators */
 .risk.low {
-  color: #16a34a; /* green */
+  color: #16a34a;
   font-weight: 700;
 }
 
 .risk.moderate {
-  color: #f59e0b; /* yellow */
+  color: #f59e0b;
   font-weight: 700;
 }
 
 .risk.high {
-  color: #b91c1c; /* red */
+  color: #b91c1c;
   font-weight: 700;
 }
 
 /* ALERTS */
-.alerts-section .section-title {
-  font-size: 2.2rem;
-  font-weight: 900;
-  color: #b91c1c;
-  margin-bottom: 30px;
-  text-align: center;
-  letter-spacing: 1px;
-}
-
-/* Alert Cards */
 .alerts-section .section-title {
   font-size: 2.2rem;
   font-weight: 900;
@@ -156,10 +136,10 @@ html, body, #root {
   border-left: 8px solid;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   background: #fff5f5;
-  border-radius: 8px 0 8px 0; /* sharp angled corners */
+  border-radius: 8px 0 8px 0;
 }
 
-/* Alert Types with gradient backgrounds */
+/* Alert Types */
 .alert-card.high {
   border-color: #b91c1c;
   color: #b91c1c;
@@ -185,16 +165,11 @@ html, body, #root {
   height: 28px;
 }
 
-/* Alert message text */
 .alert-card span {
   flex: 1;
   font-size: 1rem;
   line-height: 1.4rem;
 }
-
-
-
-
 
 /* TIPS & CONTACTS */
 .tips-contacts-section {
@@ -209,11 +184,6 @@ html, body, #root {
   padding: 2rem;
   box-shadow: 0 8px 25px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
-}
-
-.tips-card:hover, .contacts-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
 }
 
 .tips-card ul {
@@ -232,4 +202,61 @@ html, body, #root {
   gap: 0.5rem;
   margin-bottom: 0.6rem;
   font-weight: 500;
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 1024px) {
+  .page-title {
+    font-size: 2.4rem;
+  }
+
+  .map-card {
+    height: 320px;
+  }
+
+  .zone-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 30px 15px;
+    gap: 30px;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .alert-card {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+
+  .alert-card svg {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+
+  .map-card {
+    height: 250px;
+  }
+
+  .zone-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .zone-card p,
+  .zone-card li,
+  .alert-card span {
+    font-size: 0.85rem;
+  }
 }

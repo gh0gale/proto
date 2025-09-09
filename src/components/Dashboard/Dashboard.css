@@ -106,10 +106,10 @@ body,
   gap: 30px;
 }
 .chart-card {
-  background: #fff5f5; /* soft red-tinted white */
+  background: #fff5f5;
   border-radius: 20px;
   padding: 2.5rem;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   margin: 0 auto 40px;
@@ -117,7 +117,7 @@ body,
 
 .chart-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.15);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
 }
 
 .chart-card h3 {
@@ -145,7 +145,7 @@ body,
 
 .report-list li:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .report-list a {
@@ -171,10 +171,8 @@ body,
 .chart-card svg { /* for D3 or Recharts */
   width: 100% !important;
   height: auto !important;
-  max-height: 500px; /* keeps charts large */
+  max-height: 500px;
 }
-
-
 
 .drone-info {
   margin-top: 0.8rem;
@@ -187,12 +185,53 @@ body,
   margin-bottom: 0.4rem;
 }
 
-/* RESPONSIVE */
+/* RESPONSIVE QUERIES */
+
+/* Tablets (<=1024px) */
 @media (max-width: 1024px) {
   .sensor-cards {
     flex-direction: column;
   }
   .drone-images {
     flex-direction: column;
+  }
+  .chart-card h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* Large Phones (<=768px) */
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px 15px;
+  }
+  .page-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .sensor-card {
+    padding: 1rem;
+  }
+  .chart-card {
+    padding: 1.5rem;
+  }
+  .chart-card h3 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Small Phones (<=480px) */
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 1.8rem;
+  }
+  .sensor-card .value {
+    font-size: 1.2rem;
+  }
+  .report-list li {
+    padding: 1rem;
+  }
+  .chart-card h3 {
+    font-size: 1.3rem;
   }
 }

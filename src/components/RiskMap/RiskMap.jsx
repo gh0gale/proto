@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AlertTriangle, Thermometer, CloudRain, MapPin } from "lucide-react";
 import "./RiskMap.css";
+import risk from "../../assets/risk.png";
 
 // Sample data
 const zones = [
@@ -38,6 +39,8 @@ export default function RiskMap() {
   const [viewMode, setViewMode] = useState("public"); // public or engineer
 
   return (
+
+    
     <div className="riskmap-container">
       <h1 className="page-title">Risk Map & Forecast</h1>
 
@@ -60,9 +63,6 @@ export default function RiskMap() {
       {/* MAP & INFO */}
       <div className="map-section">
         {/* Placeholder for interactive map */}
-        <div className="map-placeholder">
-          <p>Interactive 2D/3D Terrain Map Placeholder</p>
-        </div>
 
         {/* ZONE INFO CARDS */}
         <div className="zone-cards">
@@ -99,7 +99,6 @@ export default function RiskMap() {
           ))}
         </div>
       </div>
-
     </div>
   );
 }
